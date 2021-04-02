@@ -7,6 +7,9 @@ function ControlsAndInput() {
 	//Initialize variabble for menu notification movement
 	this.scrollVariable = 430;
 	
+	//The file input button in the top left of the screen
+	this.loadmusic = new LoadMusic();
+
 	//playback button displayed in the top left of the screen
 	this.playbackButton = new PlaybackButton();
 
@@ -46,16 +49,25 @@ function ControlsAndInput() {
 		//playback button 
 		this.playbackButton.draw();
 
+		//input button 
+		this.loadmusic.draw();
+
 		//Set text size
 		textSize(34);
 		
 		//only draw the menu if menu displayed is set to true.
 		if(this.menuDisplayed) {
 
+			//Draw rectangle around the menu button
+			fill(10, 38, 92, 100);
+			rect(85, 2, 360, 340);
+
+			//Print Menu Bar
+			fill(0,0,0);
 			text("Select a visualisation:", 100, 30);
 
-			this.scrollVariable = this.scrollVariable + 2;
-
+			this.scrollVariable = this.scrollVariable + 1;
+		
 			if (this.scrollVariable < innerWidth) {
 				textSize(15);
 				text(" (To Select, Press Number Below or Drag Mouse on Option)", this.scrollVariable, 25)
@@ -65,7 +77,20 @@ function ControlsAndInput() {
 			}
 			textSize(34);
 			this.menu();
-		}	
+
+			//Change playing button
+			if (this.loadmusic.playingChange == true) {
+				this.playbackButton.playing = this.loadmusic.playingChange;
+				console.log("test");
+			}
+			
+			//input button 
+			this.loadmusic.draw();
+
+		}else{
+			this.loadmusic.change();
+		}
+
 		pop();
 
 		//This implements realtime visualization change when mouse is moved on display option

@@ -43,8 +43,6 @@ function Beats(){
 			//Draw ellispe that detects beats.
 			if (sum > (sampleAverage * c)) {
 				//beat
-				// fill(255, 0, 0);
-				// ellipse(width/2, height/2, 100);
 				this.fireworks.addFirework();
 				this.fireworks.update(frameCount);
 			}

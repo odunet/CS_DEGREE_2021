@@ -16,6 +16,9 @@ var isInitialized;
 var gui;
 //A global amplitude variable for the noiseDanceManual constructor (p5.js GUI)
 var amplitudeGUI;
+//File input
+var inputbtn 
+var processFile
 
 function preload() {
 	//Initialize variable to check if sound is loaded
@@ -24,6 +27,7 @@ function preload() {
 	sound = loadSound('./assets/stomper_reggae_bit.mp3', function(){
 		isLoaded = true;
 	});
+	console.log(sound);
 }
 
 function setup(){
@@ -54,10 +58,11 @@ function setup(){
 
 	 //set framRate
 	 frameRate(60);
+
 }
 
 function draw() {
-	background(0);
+	background(66, 129, 245);
 	fill(255);
 	//draw the selected visualisation
 	vis.selectedVisual.draw();
@@ -65,6 +70,7 @@ function draw() {
 	controls.draw();
 	//Check with user to start sound
 	if (!sound.isPlaying() && isInitialized==false) {
+		textSize(16);
 		text("press any key to begin",width/2, height/2);
 	}
 
@@ -73,12 +79,12 @@ function draw() {
 		if (vis.selectedVisual.name == "Needles") {
 			stroke(0);
 			fill(0);
-			textSize(12);
+			textSize(14);
 			text("Press Space Bar to show MENU and Double click to toggle full screen mode",width/2-150, height-20);
 		} else {
 			stroke(255);
 			fill(255);
-			textSize(12);
+			textSize(14);
 			text("Press Space Bar to show MENU and Double click to toggle full screen mode",width/2-150, height-20);
 		}
 	}

@@ -15,12 +15,16 @@ function PlaybackButton() {
 			if (this.playing) {
 				rect(this.x, this.y, this.width/2 - 2, this.height);
 				rect(this.x + (this.width/2 + 2), this.y, this.width/2 - 2, this.height);
-				textSize(10)
-				text("Pause",this.x + ((this.width / 2) - 10), this.y + 35)
+				textSize(16)
+				noStroke();
+				fill(255,100,0);
+				text("Pause",this.x + ((this.width / 2) - 14), this.y + 40)
 			} else {	
 				triangle(this.x, this.y, this.x + this.width, this.y + (this.height / 2), this.x, this.y + this.height);
-				textSize(10)
-				text("Play",this.x + ((this.width / 2) - 10),this.y + 35)
+				textSize(16)
+				fill(0,255,0);
+				noStroke();
+				text("Play",this.x + ((this.width / 2) - 14),this.y + 40)
 			}
 		}
 	};
